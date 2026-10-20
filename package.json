@@ -1,0 +1,40 @@
+{
+  "name": "pennyku",
+  "version": "1.0.0",
+  "description": "PennyKu adalah aplikasi pencatatan keuangan personal untuk membantu pengguna mencatat pemasukan, pengeluaran, wallet, dan budget secara rapi.",
+  "main": "index.js",
+  "private": "true",
+  "workspaces": [
+    "apps/web"
+  ],
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"cd apps/api && php artisan serve\" \"npm run dev --workspaces=apps/web\"",
+    "dev:api": "php artisan serve --dir=apps/api",
+    "dev:web": "npm run dev --workspaces=apps/web",
+    "install:all": "npm install && composer install --working-dir=apps/api",
+    "migrate": "php artisan migrate --dir=apps/api",
+    "migrate:fresh": "php artisan migrate:fresh --seed --dir=apps/api",
+    "build": "npm run build --workspaces=apps/web",
+    "lint": "npm run lint --workspaces=apps/web",
+    "test": "php artisan test --dir=apps/api",
+    "format:api": "./vendor/bin/pint --dir=apps/api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatiagungidn-dev/PennyKu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jatiagungidn-dev/PennyKu/issues"
+  },
+  "homepage": "https://github.com/jatiagungidn-dev/PennyKu#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
