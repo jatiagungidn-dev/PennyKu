@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('wallet_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->decimal('amount', 16, 2);
             $table->enum('type', ['income', 'expense', 'transfer']);
-            $table->foreignId('transfer_wallet_id')->nullable()->constrained('wallet')->nullOnDelete();
+            $table->foreignId('transfer_wallet_id')->nullable()->constrained('wallets')->nullOnDelete();
             $table->string('note')->nullable();
             $table->timestamp('occurred_at');
             $table->timestamps();
