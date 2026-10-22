@@ -27,7 +27,7 @@ class StoreWalletRequest extends FormRequest
             'name' => ['required', 'string', 'max:50'],
             'type' => ['required', 'in:cash,bank,e_wallet,other'],
             'initial_balance' => ['nullable', 'numeric', 'min:0'],
-            'color' => ['nullable', 'strin', 'max:7'],
+            'color' => ['nullable', 'string', 'max:7'],
         ];
     }
 
