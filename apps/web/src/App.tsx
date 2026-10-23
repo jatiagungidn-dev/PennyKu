@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from "./context/authContext";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import WalletsPage from "./pages/WalletsPage";
+import TransactionsPage from "./pages/TransactionsPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -38,6 +39,15 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route
+            path="/transactions"
+            element={
+              <ProtectedRoute>
+                <TransactionsPage />
+              </ProtectedRoute>
+            }
+          ></Route>
 
           <Route path="*" element={<Navigate to="/wallets" replace />} />
         </Routes>

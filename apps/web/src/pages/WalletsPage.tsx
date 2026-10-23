@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { api } from "../lib/api";
 import { useAuth } from "../context/authContext";
 import type { Wallet } from "../types";
@@ -65,12 +66,28 @@ export default function WalletsPage() {
             </p>
           </div>
 
-          <button
-            onClick={handleLogout}
-            className="rounded-lg border border-slate-700 px-3 py-1.5 text-sm hover:bg-slate-800"
-          >
-            Logout
-          </button>
+          <nav className="flex items-center gap-3">
+            <Link
+              to="/wallets"
+              className="rounded-lg border border-slate-700 px-3 py-1.5 text-sm hover:bg-slate-800"
+            >
+              Wallets
+            </Link>
+
+            <Link
+              to="/transactions"
+              className="rounded-lg border border-slate-700 px-3 py-1.5 text-sm hover:bg-slate-800"
+            >
+              Transaksi
+            </Link>
+
+            <button
+              onClick={handleLogout}
+              className="rounded-lg border border-slate-700 px-3 py-1.5 text-sm hover:bg-slate-800"
+            >
+              Logout
+            </button>
+          </nav>
         </div>
       </header>
 

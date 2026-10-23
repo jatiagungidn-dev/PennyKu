@@ -11,16 +11,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "concurrently -n api,web -c cyan,magenta \"cd apps/api && php artisan serve\" \"npm run dev --workspaces=apps/web\"",
-    "dev:api": "php artisan serve --dir=apps/api",
-    "dev:web": "npm run dev --workspaces=apps/web",
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "cd apps/api && php artisan serve",
+    "dev:web": "cd apps/web && npm run dev",
     "install:all": "npm install && composer install --working-dir=apps/api",
-    "migrate": "php artisan migrate --dir=apps/api",
-    "migrate:fresh": "php artisan migrate:fresh --seed --dir=apps/api",
+    "migrate": "cd apps/api && php artisan migrate",
+    "migrate:fresh": "cd apps/api && php artisan migrate:fresh --seed",
     "build": "npm run build --workspaces=apps/web",
     "lint": "npm run lint --workspaces=apps/web",
-    "test": "php artisan test --dir=apps/api",
-    "format:api": "./vendor/bin/pint --dir=apps/api"
+    "test": "cd apps/api && php artisan test",
+    "format:api": "cd apps/api && vendor\\bin\\pint.bat"
   },
   "repository": {
     "type": "git",
